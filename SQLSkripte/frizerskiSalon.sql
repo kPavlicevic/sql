@@ -1,4 +1,4 @@
-
+use master
 drop database if exists frizerskiSalon;
 go
 create database frizerskiSalon collate Croatian_CI_AS;
