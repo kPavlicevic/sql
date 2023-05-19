@@ -71,3 +71,13 @@ values
 	('maèka','7',3,3,3);
 
 
+select * from prostorija;
+
+update prostorija set tip='z'
+where sifra=3;
+
+select * from sticenik;
+
+delete from sticenik where sifra=3;
+
+
