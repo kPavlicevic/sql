@@ -33,12 +33,12 @@ create table djelatnik (
 	prezime varchar (50) not null
 );
 
-alter table termin add foreign key (korisnik) references korisnik(sifra);
+alter table termin add foreign key (korisnik) references korisnik(sifra) on delete cascade;
 alter table termin add foreign key (usluga) references usluga(sifra);
 alter table termin add foreign key (djelatnik) references djelatnik(sifra);
 
 
-select * from korisnik
+select * from korisnik;
 
 insert into korisnik (spol,ime,prezime)
 values
@@ -46,7 +46,7 @@ values
 	('z','Ivka','Ivkiæ'),
 	('z','Jure','Juriæ');
 
-select * from djelatnik
+select * from djelatnik;
 
 insert into djelatnik (ime,prezime)
 values
@@ -69,3 +69,15 @@ values
 	('2023-05-25',1,1,1),
 	('2023-06-25',2,2,2),
 	('2023-07-05',3,3,3);
+
+
+select * from korisnik;
+
+update korisnik 
+	set ime='Jurja'
+	where sifra=3;
+
+select * from korisnik;
+
+delete from termin where korisnik=3;
+delete from korisnik where sifra=3;
