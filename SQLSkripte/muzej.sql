@@ -22,7 +22,7 @@ create table kustos (
 	sifra int not null primary key identity (1,1),
 	ime varchar (50) not null,
 	prezime varchar (50) not null,
-	izlozba int
+	izlozba int not null
 );
 
 create table sponzor (
@@ -49,7 +49,31 @@ select * from kustos;
 
 insert into kustos (ime,prezime,izlozba)
 values
-	('Valentina','Viliæ','z'),
-	('Ante','Antiæ','y'),
-	('Hrvoje','Horvat','x');
+	('Valentina','Viliæ','1'),
+	('Ante','Antiæ','2'),
+	('Hrvoje','Horvat','3');
 
+select * from izlozba;
+
+insert into izlozba (sponzor,kustos)
+values
+	(1,1),
+	(2,2),
+	(3,3);
+
+select * from djelo;
+
+insert into djelo (ime,autor,izlozba)
+values 
+	('Krik','Munch',1),
+	('MonaLisa','daVinci',2),
+	('David','Michelangelo',3);
+
+select * from kustos;
+
+update kustos set prezime='Aniæ'
+where sifra=2;
+
+select * from djelo;
+
+delete from djelo where sifra=3;
