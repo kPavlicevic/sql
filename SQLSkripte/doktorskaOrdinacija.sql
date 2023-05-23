@@ -9,9 +9,6 @@ create table doktor (
 	sifra int not null primary key identity (1,1),
 	ime varchar (50) not null,
 	prezime varchar (50) not null,
-	pacijent int,
-	lijecenje int,
-	medicinskaSestra int
 );
 
 create table pacijent (
@@ -38,3 +35,47 @@ create table medicinskaSestra (
 alter table pacijent add foreign key (doktor) references doktor(sifra);
 alter table lijecenje add foreign key (pacijent) references pacijent(sifra);
 alter table medicinskaSestra add foreign key (doktor) references doktor(sifra);
+
+
+select * from doktor;
+
+insert into doktor (ime,prezime)
+values
+	('Vesna','Vesniæ'),
+	('Jasenka','Jasniæ'),
+	('Janko','Janiæ');
+
+select * from pacijent;
+
+insert into pacijent (ime,prezime,doktor)
+values
+	('Kata','Katiæ',1),
+	('Iva','Iviæ',2),
+	('Dodo','Dodiæ',3);
+
+select * from medicinskaSestra;
+
+insert into medicinskaSestra (ime,prezime,doktor)
+values 
+	('Tina','Tiniæ',1),
+	('Josipa','Joziæ',2),
+	('Maja','Majiæ',3);
+
+select * from lijecenje;
+
+insert into lijecenje (vrsta,medicinskaSestra,pacijent)
+values
+	('antibiotici',1,1),
+	('fizikalna terapija',2,2),
+	('kemoterapija',3,3);
+
+
+select * from lijecenje;
+
+update lijecenje set vrsta='imunoterapija'
+where sifra=3;
+
+select * from lijecenje;
+
+delete from lijecenje where sifra=2;
+
