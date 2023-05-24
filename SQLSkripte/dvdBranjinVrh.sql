@@ -9,7 +9,7 @@ create table dvdBranjinVrh(
 	sifra int not null primary key identity (1,1),
 	email varchar (50) not null,
 	naziv varchar (50) not null,
-	godina char (4)
+	godina varchar (4)
 );
 
 create table korisnik(
