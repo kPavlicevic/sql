@@ -24,3 +24,7 @@ create table obrazac(
 	korisnik int not null,
 	gradivo int not null
 );
+
+alter table gradivo add foreign key (korisnik) references korisnik(sifra);
+alter table obrazac add foreign key (korisnik) references korisnik(sifra);
+alter table obrazac add foreign key (gradivo) references gradivo(sifra);
