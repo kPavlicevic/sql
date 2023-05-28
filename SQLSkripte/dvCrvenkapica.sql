@@ -39,3 +39,8 @@ create table prijava(
 	dijete int not null,
 	vrtic int not null
 );
+
+alter table prijava add foreign key (dijete) references dijete(sifra);
+alter table prijava add foreign key (vrtic) references vrtic(sifra);
+alter table dijete add foreign key (odgojnaSkupina) references odgojnaSkupina(sifra);
+alter table galerija add foreign key (vrtic) references vrtic(sifra);
