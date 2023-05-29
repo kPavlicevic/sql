@@ -42,3 +42,28 @@ alter table gradivo add foreign key (korisnik) references korisnik(sifra);
 alter table obrazac add foreign key (korisnik) references korisnik(sifra);
 alter table obrazac add foreign key (gradivo) references gradivo(sifra);
 
+
+select * from korisnik;
+
+insert into korisnik (ime,prezime,telefonskiBroj)
+values
+	('Stipo','Stipiæ','0985126478'),
+	('Kata','Katiæ','0995214789'),
+	('Domagoj','Domiæ','0995024587');
+
+
+select * from gradivo;
+
+insert into gradivo (vrsta,status,korisnik)
+values
+	('knjiga roðenih','dostupno',1),
+	('knjiga vjenèanih','nedostupno',2),
+	('knjiga umrlih','dostupno',3);
+
+select * from obrazac;
+
+insert into obrazac (korisnik,gradivo)
+values
+	(1,1),
+	(2,2),
+	(3,3);
