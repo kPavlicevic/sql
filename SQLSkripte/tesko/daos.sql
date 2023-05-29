@@ -73,3 +73,9 @@ select * from gradivo;
 
 update gradivo set status='dostupno'
 where sifra=2;
+
+select * from korisnik;
+
+delete from gradivo where korisnik=3;
+delete from korisnik where sifra=3;
+
