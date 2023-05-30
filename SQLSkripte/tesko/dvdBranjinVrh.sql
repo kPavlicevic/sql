@@ -66,3 +66,21 @@ alter table prijavnica add foreign key (korisnik) references korisnik(sifra);
 alter table prijavnica add foreign key (dvdBranjinVrh) references dvdBranjinVrh(sifra);
 alter table vijesti add foreign key (dvdBranjinVrh) references dvdBranjinVrh(sifra);
 alter table dogadanja add foreign key (dvdBranjinVrh) references dvdBranjinVrh(sifra);
+
+
+select * from dvdBranjinVrh;
+
+insert into dvdBranjinVrh (email,naziv,godina)
+values
+	('dvdbranjinvrh@gmail.com','Branjin Vrh','1989');
+
+select * from korisnik;
+
+insert into korisnik (ime,prezime,email)
+values
+	('Miro','Miriæ','miromiric@gmail.com'),
+	('Ivo','Iviæ','ivoivic5@gmail.com'),
+	('Stipo','Stipiæ','stipostipic34@gmail.com');
+
+
+
