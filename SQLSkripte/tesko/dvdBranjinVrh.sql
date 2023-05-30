@@ -1,3 +1,15 @@
+/*Dobrovoljno vatrogasno društvo Branjin Vrh
+Dobrovoljno vatrogasno društvo Branjin Vrh je malo vatrogasno društvo u srcu Baranje koje 
+djeluje veæ 117 godina. Kako društvo trenutno nema svoju web stranicu, putem ovog projekta 
+bih napravila web stranicu dobrovoljnog vatrogasnog društva. Na toj bi stranici krajnji 
+korisnici (posjetitelji) mogli pratiti sva dogaðanja, èitati vijesti vezane za ovo, ali i 
+druga dobrovoljna vatrogasna društva u Baranji i šire. Korisnici bi mogli kontaktirati 
+društvo pomoæu mail adrese, odnosno obrasca koji se šalje na mail adresu te se upisati u 
+vatrogasno društvo putem prijavnice dostupne na web adresi. S druge strane poslužitelji 
+informacija mogu vrlo jednostavno najavljivati dogaðanja, objavljivati vijesti, postaviti fotografije i slièno. 
+*/
+
+
 use master;
 drop database if exists dvdBranjinVrh;
 go
