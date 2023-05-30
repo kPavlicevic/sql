@@ -21,14 +21,14 @@ create table dvdBranjinVrh(
 	sifra int not null primary key identity (1,1),
 	email varchar (50) not null,
 	naziv varchar (50) not null,
-	godina varchar (4)
+	godina varchar (10)
 );
 
 create table korisnik(
 	sifra int not null primary key identity (1,1),
 	ime varchar (50) not null,
 	prezime varchar (50) not null,
-	email varchar (50)
+	email varchar (50) not null
 );
 
 create table obrazac(
@@ -47,7 +47,7 @@ create table vijesti(
 	sifra int not null primary key identity (1,1),
 	dvdBranjinVrh int not null,
 	slika image,
-	sadržaj varchar (500),
+	sadrzaj varchar (50),
 	vrijeme time
 );
 
@@ -82,5 +82,33 @@ values
 	('Ivo','Iviæ','ivoivic5@gmail.com'),
 	('Stipo','Stipiæ','stipostipic34@gmail.com');
 
+select * from vijesti;
 
+insert into vijesti (dvdBranjinVrh,slika,vrijeme)
+values
+	(1,'vatrogasci','2022-04-10 18:00:00'),
+	(1,'požar','2023-05-26 16:00:00'),
+	(1,'priroda','2023-01-05 07:00:00');
 
+select * from dogadanja;
+
+insert into dogadanja (dvdBranjinVrh,slika,vrijeme,lokacija)
+values
+	(1,'godisnjica dvda','2022-06-20 12:00:00','Branjin Vrh'),
+	(1,'vježba','2023-04-05 12:00:00','Branjin Vrh');
+
+select * from prijavnica;
+
+insert into prijavnica (dvdBranjinVrh,korisnik)
+values
+	(1,1),
+	(1,2),
+	(1,3);
+
+select * from obrazac;
+
+insert into obrazac (dvdBranjinVrh,korisnik)
+values
+	(1,1),
+	(1,2),
+	(1,3);
