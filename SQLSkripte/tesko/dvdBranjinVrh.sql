@@ -112,3 +112,11 @@ values
 	(1,1),
 	(1,2),
 	(1,3);
+
+
+select * from vijesti;
+
+update vijesti set vrijeme='08:00:00'
+where sifra=1
+
+delete from vijesti where sifra=2;
