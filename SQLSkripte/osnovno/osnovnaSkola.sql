@@ -23,7 +23,7 @@ create table uciteljica(
 	sifra int not null primary key identity (1,1),
 	ime varchar (50) not null,
 	prezime varchar (50) not null,
-	djecjaRadionica varchar (50)
+	djecjaRadionica int
 );
 
 create table djecjaRadionica_dijete(
@@ -33,3 +33,6 @@ create table djecjaRadionica_dijete(
 );
 
 
+alter table djecjaRadionica_dijete add foreign key (djecjaRadionica) references djecjaRadionica(sifra);
+alter table djecjaRadionica_dijete add foreign key (dijete) references dijete(sifra);
+alter table uciteljica add foreign key (djecjaRadionica) references djecjaRadionica(sifra);
