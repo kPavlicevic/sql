@@ -23,11 +23,13 @@ create table uciteljica(
 	sifra int not null primary key identity (1,1),
 	ime varchar (50) not null,
 	prezime varchar (50) not null,
-	radionica varchar (50)
+	djecjaRadionica varchar (50)
 );
 
-create table radionica_dijete(
+create table djecjaRadionica_dijete(
 	sifra int not null primary key identity (1,1),
 	dijete int,
-	radionica int
+	djecjaRadionica int
 );
+
+
