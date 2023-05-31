@@ -80,3 +80,9 @@ insert into prijava (vrtic,dijete)
 values
 	(1,1),(1,2);
 
+
+select * from odgojnaSkupina;
+
+update odgojnaSkupina set naziv='Crvene kapice'
+where sifra=1;
+
