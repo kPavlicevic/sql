@@ -31,3 +31,7 @@ create table razred_profesor(
 	razred int,
 	profesor int
 );
+
+alter table ucenik add foreign key (razred) references razred(sifra);
+alter table razred_profesor add foreign key (razred) references razred(sifra);
+alter table razred_profesor add foreign key (profesor) references profesor(sifra);
