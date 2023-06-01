@@ -49,23 +49,27 @@ select * from ucenik;
 
 insert into ucenik (ime,prezime,oib,razred)
 values
-	('Andrija','Andriæ','21579630158',2),
-	('Karlo','Karliæ','02589631478',3),
-	('Krešo','Krešiæ','03215698745',4);
+	('Andrija','Andriæ','21579630158',1),
+	('Karlo','Karliæ','02589631478',2),
+	('Krešo','Krešiæ','03215698745',3);
 
 select * from profesor;
 
 insert into profesor (ime,prezime,razred)
 values
-	('Jasna','Jasniæ',2),
-	('Josip','Joziæ',3),
-	('Nada','Nadiæ',4);
+	('Jasna','Jasniæ',1),
+	('Josip','Joziæ',2),
+	('Nada','Nadiæ',3);
 
 select * from razred_profesor;
 
 insert into razred_profesor (razred,profesor)
 values
-	(2,1),
-	(3,2),
-	(4,3);
+	(1,1),
+	(2,2),
+	(3,3);
 
+update ucenik set ime='Andria'
+where sifra=10;
+
+delete from ucenik where sifra=10;
