@@ -24,3 +24,6 @@ create table trgovina_osoba(
 	trgovina int not null,
 	osoba int not null
 );
+
+alter table trgovina_osoba add foreign key (trgovina) references trgovina(sifra);
+alter table trgovina_osoba add foreign key (osoba) references osoba(sifra);
