@@ -1,3 +1,8 @@
+/*14.	Trgovaèki centar 
+U jednom trgovaèkom centru postoji više trgovina. U svakoj trgovini radi više osoba. 
+Jedna osoba može raditi u više trgovina. Svaka trgovina ima jednog šefa koji je ujedno i osoba.
+*/
+
 use master;
 drop database if exists trgovackiCentar;
 go
