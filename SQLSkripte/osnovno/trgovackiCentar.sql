@@ -52,3 +52,9 @@ values
 	(1,1),
 	(2,2),
 	(3,3);
+
+update trgovina set sef='Marinka'
+where sifra=3;
+
+delete from trgovina_osoba where osoba=3;
+delete from osoba where sifra=3;
