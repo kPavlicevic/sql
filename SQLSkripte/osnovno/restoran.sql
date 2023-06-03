@@ -70,3 +70,11 @@ values
 	(2,1),
 	(3,2),
 	(4,3);
+
+
+update pice set naziv='Cappuccino'
+where sifra=2;
+
+delete from jelo where jelovnik=1;
+delete from jelo_pice where sifra=1;
+delete from jelovnik where sifra=1;
