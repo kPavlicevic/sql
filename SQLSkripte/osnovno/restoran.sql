@@ -18,7 +18,6 @@ create table jelovnik (
 create table jelo (
 	sifra int not null primary key identity (1,1),
 	naziv varchar (50) not null,
-	obrok varchar (50),
 	jelovnik int not null
 );
 
@@ -37,3 +36,19 @@ create table jelo_pice (
 alter table jelo add foreign key (jelovnik) references jelovnik(sifra);
 alter table jelo_pice add foreign key (jelo) references jelo(sifra);
 alter table jelo_pice add foreign key (pice) references pice(sifra);
+
+
+--select * from jelovnik;
+
+--insert into jelovnik (kategorija)
+--values
+--	('predjelo'),
+--	('glavno jelo'),
+--	('desert'),
+--	('pice');
+
+--select * from jelo;
+
+--insert into jelo (naziv,jelovnik)
+--values
+--	('Juha od gljiva',
