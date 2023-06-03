@@ -39,3 +39,45 @@ create table djelatnik (
 alter table proizvod add foreign key (djelatnik) references djelatnik(sifra);
 alter table proizvod_sirovina add foreign key (proizvod) references proizvod(sifra);
 alter table proizvod_sirovina add foreign key (sirovina) references sirovina(sifra);
+
+
+select * from sirovina;
+
+insert into sirovina (naziv,vrsta)
+values
+	('rajèica','povræe'),
+	('šljive','voæe'),
+	('jagode','voæe');
+
+select * from djelatnik;
+
+insert into djelatnik (ime,prezime)
+values
+	('Šima','Šimiæ'),
+	('Želja','Željaniæ'),
+	('Ivica','Iviæ');
+
+select * from proizvod;
+
+insert into proizvod (naziv,djelatnik)
+values
+	('pasirana rajèica',1),
+	('kompot',2),
+	('marmelada',3);
+
+select * from proizvod_sirovina;
+
+insert into proizvod_sirovina (proizvod,sirovina)
+values
+	(1,1),
+	(2,2),
+	(3,3);
+
+
+update proizvod set naziv='pekmez'
+where sifra=3;
+
+
+delete from proizvod where djelatnik=2;
+delete from proizvod_sirovina where sifra=2;
+delete from djelatnik where sifra=2;
