@@ -32,7 +32,7 @@ create table zena (
 	jmbag char (11) not null,
 	bojaOciju varchar (39) not null,
 	haljina varchar (44),
-	sestra int not null
+	id_sestra int not null
 );
 
 create table muskarac (
@@ -41,7 +41,7 @@ create table muskarac (
 	hlace varchar (30),
 	modelNaocala varchar (43),
 	maraka decimal (14,5) not null,
-	zena int not null
+	id_zena int not null
 );
 
 create table mladic (
@@ -52,13 +52,13 @@ create table mladic (
 	asocijalno bit,
 	ekstroventno bit not null,
 	dukserica varchar (48) not null,
-	muskarac int
+	id_muskarac int
 );
 
 create table sestra_svekar (
 	sifra int not null primary key identity (1,1),
-	sestra int not null,
-	svekar int not null
+	id_sestra int not null,
+	id_svekar int not null
 );
 
 create table punac (
@@ -76,15 +76,15 @@ create table cura (
 	ogrlica int not null,
 	bojaKose varchar (38),
 	suknja varchar (36),
-	punac int
+	id_punac int
 );
 
-alter table sestra_svekar add foreign key (svekar) references svekar(sifra);
-alter table sestra_svekar add foreign key (sestra) references sestra(sifra);
-alter table zena add foreign key (sestra) references sestra(sifra);
-alter table muskarac add foreign key (zena) references zena(sifra);
-alter table mladic add foreign key (muskarac) references muskarac(sifra);
-alter table cura add foreign key (punac) references punac(sifra);
+alter table sestra_svekar add foreign key (id_svekar) references svekar(sifra);
+alter table sestra_svekar add foreign key (id_sestra) references sestra(sifra);
+alter table zena add foreign key (id_sestra) references sestra(sifra);
+alter table muskarac add foreign key (id_zena) references zena(sifra);
+alter table mladic add foreign key (id_muskarac) references muskarac(sifra);
+alter table cura add foreign key (id_punac) references punac(sifra);
 
 select * from svekar;
 
@@ -104,7 +104,7 @@ values
 
 select * from sestra_svekar;
 
-insert into sestra_svekar (sestra,svekar)
+insert into sestra_svekar (id_sestra,id_svekar)
 values
 	(1,1),
 	(2,2),
@@ -112,7 +112,7 @@ values
 
 select * from zena;
 
-insert into zena (treciPuta,hlace,kratkaMajica,jmbag,bojaOciju,haljina,sestra)
+insert into zena (treciPuta,hlace,kratkaMajica,jmbag,bojaOciju,haljina,id_sestra)
 values
 	('2023-04-17','kratke','kratka','87521456982','plava','dugacka',1),
 	('2023-05-10','tanane','kratkaa','51023678954','zelena','kratka',2),
@@ -120,7 +120,7 @@ values
 
 select * from muskarac;
 
-insert into muskarac (bojaOciju,hlace,modelNaocala,maraka,zena)
+insert into muskarac (bojaOciju,hlace,modelNaocala,maraka,id_zena)
 values
 	('plava','kratke','okrugle','35.32',1),
 	('zelena','dugacke','kockaste','45.23',2),
@@ -135,4 +135,6 @@ update cura set gustoca=15.77;
 
 delete from mladic where kuna>'15.78';
 
--- 4. Izlistajte kratkamajica iz tablice zena uz uvjet da vrijednost kolone hlace sadrže slova ana.select kratkaMajica from zena where hlace like '%ana%';
+-- 4. Izlistajte kratkamajica iz tablice zena uz uvjet da vrijednost kolone hlace sadrže slova ana.select kratkaMajica from zena where hlace like '%ana%';/* 5. Prikažite dukserica iz tablice svekar, asocijalno iz tablice mladic te hlace iz tablice muskarac uz uvjet da su vrijednosti kolone hlace iz 
+tablice zena poèinju slovom a te da su vrijednosti kolone haljina iz tablice sestra sadrže niz znakova ba. Podatke posložite po hlace iz 
+tablice muskarac silazno. */select a.dukserica, f.asocijalno, e.hlacefrom svekar ainner join sestra_svekar b on a.sifra=b.id_svekarinner join sestra c on c.sifra=b.id_sestrainner join zena d on c.sifra=d.id_sestrainner join muskarac e on d.sifra=e.id_zenainner join mladic f on e.sifra=f.id_muskaracwhere d.hlace like 'a%' and c.haljina like '%ba%'order by e.hlace;-- 6. Prikažite kolone haljina i maraka iz tablice sestra èiji se primarni kljuè ne nalaze u tablici sestra_svekar.select sestra.haljina, sestra.maraka from sestrawhere sifra not in (select sifra from sestra_svekar);
