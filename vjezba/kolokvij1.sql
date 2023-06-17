@@ -135,8 +135,27 @@ update cura set gustoca=15.77;
 
 delete from mladic where kuna>'15.78';
 
--- 4. Izlistajte kratkamajica iz tablice zena uz uvjet da vrijednost kolone hlace sadrže slova ana.select kratkaMajica from zena where hlace like '%ana%';/* 5. Prikažite dukserica iz tablice svekar, asocijalno iz tablice mladic 
+-- 4. Izlistajte kratkamajica iz tablice zena uz uvjet da vrijednost kolone hlace sadrže slova ana.
+
+select kratkaMajica from zena where hlace like '%ana%';
+
+/* 5. Prikažite dukserica iz tablice svekar, asocijalno iz tablice mladic 
 te hlace iz tablice muskarac uz uvjet da su vrijednosti kolone hlace iz 
 tablice zena poèinju slovom a te da su vrijednosti kolone haljina iz tablice 
 sestra sadrže niz znakova ba. Podatke posložite po hlace iz 
-tablice muskarac silazno. */select a.dukserica, f.asocijalno, e.hlacefrom svekar ainner join sestra_svekar b on a.sifra=b.id_svekarinner join sestra c on c.sifra=b.id_sestrainner join zena d on c.sifra=d.id_sestrainner join muskarac e on d.sifra=e.id_zenainner join mladic f on e.sifra=f.id_muskaracwhere d.hlace like 'a%' and c.haljina like '%ba%'order by e.hlace;-- 6. Prikažite kolone haljina i maraka iz tablice sestra èiji se primarni kljuè ne nalaze u tablici sestra_svekar.select sestra.haljina, sestra.maraka from sestrawhere sifra not in (select sifra from sestra_svekar);
+tablice muskarac silazno. */
+
+select a.dukserica, f.asocijalno, e.hlace
+from svekar a
+inner join sestra_svekar b on a.sifra=b.id_svekar
+inner join sestra c on c.sifra=b.id_sestra
+inner join zena d on c.sifra=d.id_sestra
+inner join muskarac e on d.sifra=e.id_zena
+inner join mladic f on e.sifra=f.id_muskarac
+where d.hlace like 'a%' and c.haljina like '%ba%'
+order by e.hlace;
+
+-- 6. Prikažite kolone haljina i maraka iz tablice sestra èiji se primarni kljuè ne nalaze u tablici sestra_svekar.
+
+select sestra.haljina, sestra.maraka from sestra
+where sifra not in (select sifra from sestra_svekar);
