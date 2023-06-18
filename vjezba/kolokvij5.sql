@@ -154,7 +154,7 @@ inner join punac d on c.id=d.id_svekar
 inner join punica e on d.id=e.id_punac
 inner join ostavljena f on e.id=f.id_punica
 where d.prviPuta is not null and c.majica like '%ba%'
-order by e.nausnica;
+order by e.nausnica desc;
 
 /*6. Prikažite kolone majica i carape iz tablice svekar èiji se primarni 
 kljuè ne nalaze u tablici svekar_cura.*/

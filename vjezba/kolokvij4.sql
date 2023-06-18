@@ -154,7 +154,7 @@ inner join snasa d on c.id=d.id_zena
 inner join becar e on d.id=e.id_snasa
 inner join prijatelj f on e.id=f.id_becar
 where d.treciPuta is not null and c.lipa!='29'
-order by e.kratkaMajica;
+order by e.kratkaMajica desc;
 
 /*6. Prikažite kolone lipa i prstena iz tablice zena èiji se primarni kljuè 
 ne nalaze u tablici zena_mladic.*/

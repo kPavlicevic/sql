@@ -165,7 +165,7 @@ inner join ostavljena d on d.id_prijatelj=c.id
 inner join snasa e on d.id=e.id_ostavljena
 inner join punica f on e.id=f.id_snasa
 where d.lipa!='91' and c.haljina like '%nt%'
-order by e.kuna;
+order by e.kuna desc;
 
 /* 6. Prikažite kolone haljina i lipa iz tablice prijatelj èiji se primarni kljuè 
 ne nalaze u tablici prijatelj_brat. */

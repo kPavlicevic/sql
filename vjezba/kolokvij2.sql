@@ -156,7 +156,7 @@ inner join cura d on c.id_decko=d.id_decko
 inner join neprijatelj e on e.id_cura=d.id_cura
 inner join brat f on f.id_neprijatelj=e.id_neprijatelj
 where d.drugiPuta is not null and c.vesta like '%ba%'
-order by e.haljina;
+order by e.haljina desc;
 
 
 /*6. Prikažite kolone vesta i asocijalno iz tablice decko èiji se primarni 
